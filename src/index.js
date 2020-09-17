@@ -258,12 +258,15 @@ export default class AttachesTool {
       this.data = {
         file: {
           url,
-          extension: name.split('.').pop(),
           name,
           size
         },
         title: name
       };
+      
+      if(name) {
+        this.data.file.extension = name.split('.').pop();
+      }
 
       this.nodes.button.remove();
       this.showFileData();
